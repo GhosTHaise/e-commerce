@@ -33,13 +33,11 @@
 }
 
 %h3 {
-  margin: 24px 0;
   font-size: 32px;
   line-height: 40px;
   font-weight: bold;
 
   @include mid-break {
-    margin: 20px 0;
     font-size: 26px;
     line-height: 32px;
   }
@@ -47,8 +45,8 @@
 
 %h4 {
   font-size: 30px;
-  line-height: 43px;
   font-weight: 400;
+  line-height: 43px;
   letter-spacing: 0em;
 
   @include mid-break {
