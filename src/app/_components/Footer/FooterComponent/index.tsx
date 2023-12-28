@@ -37,6 +37,9 @@ const FooterComponent = ({footer} : FooterComponentProps) => {
                 }
             </ul>
         </Gutter>
+        <div className={classes.footer}>
+                
+        </div>
     </footer>
   )
 }
