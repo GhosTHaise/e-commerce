@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { Footer } from '../../../../payload/payload-types'
+import { Footer, Media } from '../../../../payload/payload-types'
 import classes from "./index.module.scss"
 import { inclusions, noHeaderFooterUrls, profileNavItems } from '../../../constants'
 import { usePathname } from 'next/navigation'
@@ -59,7 +59,7 @@ const FooterComponent = ({footer} : FooterComponentProps) => {
                       <div className={classes.socialLinks}>
                           {
                             navItems.map((item)=> {
-                              const icons = ""
+                              const icon = item?.link?.icon as Media
                               return(
                                 <Button
                                   key={item.link.label}
@@ -68,7 +68,13 @@ const FooterComponent = ({footer} : FooterComponentProps) => {
                                   newTab={true}
                                   className={classes.socialLinkItem}
                                 >
-                                    {item.link.label}
+                                    <Image 
+                                      src={icon?.url}
+                                      alt={icon?.alt}
+                                      width={24}
+                                      height={24}
+                                      className={classes.socialIcon}
+                                    />
                                 </Button>
                               )
                             })
