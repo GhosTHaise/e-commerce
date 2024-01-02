@@ -58,9 +58,13 @@ export default async function Page({ params: { slug = 'home' } }) {
       {
         slug === "home" ?
         (
-          <Gutter>
+          <section>
               <Hero {...hero}/>
-          </Gutter>
+              <Gutter>
+                 {/* categories */}
+                 <></>
+              </Gutter>
+          </section>
         ) :
         (
           <>
