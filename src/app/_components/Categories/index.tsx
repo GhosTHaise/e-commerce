@@ -20,7 +20,7 @@ const Categories = ({categories} : CategoriesProps) => {
         <div className={classes.list}>
             {
               categories.map((category)=>(
-                <CategoryCard />
+                <CategoryCard key={category.id} category={category} />
               ))
             }
         </div>

@@ -1,8 +1,22 @@
 import React from 'react'
+import classes from "./index.module.scss"
+import { Category, Media } from '../../../../payload/payload-types'
+import Link from 'next/link'
 
-const CategoryCard = () => {
+type CategoryCard = {
+    category : Category
+}
+const CategoryCard = ({category} : CategoryCard) => {
+    const media = category.media as Media;
   return (
-    <div>index</div>
+    <Link 
+        className={classes.card} 
+        style={{ backgroundImage : `url(${media.url})`}}
+        href={"/products"}>
+        <p className={classes.title}>
+            {category.title}
+        </p>
+    </Link>
   )
 }
 
