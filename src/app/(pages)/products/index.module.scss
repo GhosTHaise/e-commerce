@@ -4,12 +4,13 @@
     width: 100%;
 }
 
-.titleWrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.products {
+    display: grid;
+    grid-template-columns: 1fr 75%;
+    gap: 60px;
 
-    h3{
-        font-weight: 400;
+    @include large-break {
+        grid-template-columns: 100%;
+        gap: 48px;
     }
 }
