@@ -5,6 +5,7 @@ import classes from "./index.module.scss";
 import { useFilter } from '../../../_providers/Filter';
 import { Category } from '../../../../payload/payload-types';
 import Checkbox from '../../../_components/Checkbox';
+import { HR } from '../../../_components/HR';
 
 const Filters = ({categories} : {categories : Category[]}) => {
   const { categoryFilters,setCategoryFilters,sort,setSort} = useFilter();
@@ -21,7 +22,7 @@ const Filters = ({categories} : {categories : Category[]}) => {
       <div className={classes.categories}>
           {
             categories.map((category : Category) => {
-              const isSelected = false;
+              const isSelected = categoryFilters.includes(category.id);
               return <Checkbox 
                 key={category.id}
                 label={category.title}
@@ -31,6 +32,13 @@ const Filters = ({categories} : {categories : Category[]}) => {
               />
             })
           }
+      </div>
+      <HR />
+      <h6 className={classes.title}>
+          Sort by
+      </h6>
+      <div className={classes.categories}>
+          
       </div>
     </div>
   )
