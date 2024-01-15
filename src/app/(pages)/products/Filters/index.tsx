@@ -6,14 +6,22 @@ import { useFilter } from '../../../_providers/Filter';
 import { Category } from '../../../../payload/payload-types';
 import Checkbox from '../../../_components/Checkbox';
 import { HR } from '../../../_components/HR';
+import { RadioButton } from '../../../_components/Radio';
 
 const Filters = ({categories} : {categories : Category[]}) => {
   const { categoryFilters,setCategoryFilters,sort,setSort} = useFilter();
 
   const handleCategories = (categoryId : string) => {
-
+    if(categoryFilters.includes(categoryId)){
+      const updatedCategories = categoryFilters.filter((id) => id !== categoryId);
+      setCategoryFilters(updatedCategories)
+    }else{
+      setCategoryFilters([...categoryFilters, categoryId]);
+    }
   }
-  
+  const handleSort = (value : string) => {
+    setSort(value)
+  }
   return (
     <div className={classes.filters }>
       <h6 className={classes.title}>
@@ -38,7 +46,20 @@ const Filters = ({categories} : {categories : Category[]}) => {
           Sort by
       </h6>
       <div className={classes.categories}>
-          
+          <RadioButton
+              label='Latest'
+              value='-createdAt'
+              isSelected={sort == "-createdAt"}
+              onRadioChange={handleSort}
+              groupName='sort'
+          />
+          <RadioButton
+              label='Oldest'
+              value='createdAt'
+              isSelected={sort == "createdAt"}
+              onRadioChange={handleSort}
+              groupName='sort'
+          />
       </div>
     </div>
   )
