@@ -319,3 +319,12 @@ The easiest way to deploy your project is to use [Payload Cloud](https://payload
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+
+
+### NINJA_STUFF
+If you want to return to main database with categories and products example , you can do a mongorestore with cli. Try the command below : 
+```
+  mongorestore --uri="mongodb+srv://hoshinoAi:TAWySoNQF6Pl4BTJ@payload-main.zotdlpq.mongodb.net/?retryWrites=true&w=majority" --db=ninja_stuff dump/test 
+```
+
+Download cli on : [MongoDB Command Line Database Tools Download](https://www.mongodb.com/try/download/mongosync)
