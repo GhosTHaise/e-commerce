@@ -40,6 +40,7 @@ dotenv.config({
 })
 
 export default buildConfig({
+
   admin: {
     user: Users.slug,
     bundler: webpackBundler(), // bundler-config
@@ -78,6 +79,10 @@ export default buildConfig({
   // database-adapter-config-start
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
+    connectOptions : {
+      waitQueueTimeoutMS : 20000,
+      maxIdleTimeMS : 20000,
+    },
   }),
   // database-adapter-config-end
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
