@@ -323,4 +323,12 @@ If you have any issues or questions, reach out to us on [Discord](https://discor
 ### MongoDb database tool
 > docs : [database-tools](https://www.mongodb.com/docs/database-tools/)
 
-tuto : ![database-tools](https://www.youtube.com/watch?v=aL10yv5fAJ0&t=115s) 
+>tuto : ![[database-tools](https://www.youtube.com/watch?v=aL10yv5fAJ0&t=115s)]
+
+### NINJA_STUFF
+If you want to return to main database with categories and products example , you can do a mongorestore with cli. Try the command below : 
+```
+  mongorestore --uri="mongodb+srv://hoshinoAi:TAWySoNQF6Pl4BTJ@payload-main.zotdlpq.mongodb.net/?retryWrites=true&w=majority" --db=ninja_stuff dump/test 
+```
+
+Download cli on : [MongoDB Command Line Database Tools Download](https://www.mongodb.com/try/download/mongosync)
