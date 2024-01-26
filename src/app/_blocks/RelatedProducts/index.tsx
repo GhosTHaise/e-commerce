@@ -29,7 +29,7 @@ export const RelatedProducts: React.FC<RelatedProductsProps> = props => {
             if (typeof doc === 'string') return null
 
             return (
-                <Card relationTo={relationTo} doc={doc} showCategories />
+                <Card relationTo={relationTo} doc={doc} showCategories /> 
             )
           })}
         </div>
