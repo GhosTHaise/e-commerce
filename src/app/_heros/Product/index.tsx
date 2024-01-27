@@ -39,7 +39,7 @@ export const ProductHero: React.FC<{
         <div className={classes.categoryWrapper}>
           <div className={classes.categories}>
             {categories?.map((category, index) => {
-              const { title: categoryTitle } : any = category
+              const { title: categoryTitle }: any = category
 
               const titleToUse = categoryTitle || 'Untitled category'
 
@@ -58,13 +58,14 @@ export const ProductHero: React.FC<{
             In Stock
           </p>
         </div>
+
+        <Price product={product} button={false} />
+        <div className={classes.description}>
+          <h6>Description</h6>
+          <p>{description}</p>
+        </div>
+        <AddToCartButton product={product} className={classes.addToCartButton} />
       </div>
-      <Price product={product} button={false} />
-      <div className={classes.description}>
-            <h6>Description</h6>
-            <p>{description}</p>
-      </div>
-      <AddToCartButton product={product} className={classes.addToCartButton} />
     </Gutter>
   )
 }
