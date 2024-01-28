@@ -5,10 +5,10 @@ import { CMSLink } from '../../_components/Link'
 import RichText from '../../_components/RichText'
 
 import classes from './index.module.scss'
+import { Media } from '../../_components/Media'
 
 export const CustomHero: React.FC<Page['hero']> = ({ richText, media, links }) => {
   const mediaUrl = media && typeof media !== "string" && `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${media.filename}`
-  console.log(mediaUrl);
   
   return (
     <section className={classes.hero}>
