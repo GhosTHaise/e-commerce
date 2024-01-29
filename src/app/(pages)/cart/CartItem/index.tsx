@@ -18,7 +18,7 @@ const CartItem = ({
 
   const decrementQty = () => {}
   const incrementQty = () => {}
-  const enterQty = () => {}
+  const enterQty = (e : React.ChangeEvent<HTMLInputElement>) => {}
 
   return (
     <li className={classes.item} key={title}>
@@ -41,7 +41,45 @@ const CartItem = ({
             }
         </Link>
 
-        
+        <div className={classes.itemDetails}>
+            <div className={classes.titleWrapper}>
+                <h6>
+                  {title}
+                </h6>
+                <Price product={product} button={false} />
+            </div>
+
+            <div className={classes.quantity}>
+              <div 
+                className={classes.quantityBtn}
+                onClick={decrementQty}
+              >
+                <Image 
+                  src="/assets/icons/minus.svg" 
+                  alt='minus' 
+                  width={24} 
+                  height={24} />
+              </div>
+
+              <input 
+                type='text' 
+                className={classes.quantityInput}
+                value={quantity}
+                onChange={(e) => enterQty(e)}
+              />
+
+              <div 
+                className={classes.quantityBtn}
+                onClick={incrementQty}
+              >
+                <Image 
+                  src="/assets/icons/plus.svg" 
+                  alt='plus' 
+                  width={24} 
+                  height={24} />
+              </div>
+            </div>
+        </div>
     </li>
   )
 }
