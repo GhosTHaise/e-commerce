@@ -1,10 +1,19 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import classes from "./index.module.scss"
 
-const CartItem = () => {
+const CartItem = ({
+  product,
+  title,
+  metaImage,
+  qty,
+  addItemToCart
+}) => {
+
+  const [quantity, setQuantity] = useState(qty)
   return (
-    <li className={classes.item}>
-        <h6>Title</h6>
+    <li className={classes.item} key={title}>
+        <h6>{title}</h6>
     </li>
   )
 }
