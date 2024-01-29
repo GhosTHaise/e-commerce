@@ -2,6 +2,8 @@
 
 .removeFromCartButton {
   all: unset;
+  outline: none;
+  border: none;
   cursor: pointer;
   @extend %label;
 }

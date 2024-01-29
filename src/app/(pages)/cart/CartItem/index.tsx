@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Media } from '../../../_components/Media'
 import { Price } from '../../../_components/Price'
 import Image from 'next/image'
+import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton'
 
 const CartItem = ({
   product,
@@ -79,6 +80,11 @@ const CartItem = ({
                   height={24} />
               </div>
             </div>
+        </div>
+
+        <div className={classes.subtotalWrapper}>
+            <Price product={product} button={false} quantity={quantity}  />
+            <RemoveFromCartButton product={product} />
         </div>
     </li>
   )
