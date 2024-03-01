@@ -55,51 +55,49 @@ export const CartPage: React.FC<{
               )}
             </div>
           ) : (
-            <div className={classes.items}>
-              <div className={classes.itemsTotal}>
-                {`There ${cart?.items?.length === 1 ? 'is' : 'are'} ${cart?.items?.length} item${
-                  cart?.items?.length === 1 ? '' : 's'
-                } in your cart.`}
-                {!user && (
-                  <Fragment>
-                    {' '}
-                    <Link href={`/login?redirect=%2Fcart`}>Log in</Link>
-                    {` to save your progress.`}
-                  </Fragment>
-                )}
+            <div className={classes.cartWrapper}>
+              <div className={classes.header}>
+           
               </div>
-              {cart?.items?.map((item, index) => {
-                if (typeof item.product === 'object') {
-                  const {
-                    quantity,
-                    product,
-                    product: { id, title, meta, stripeProductID },
-                  } = item
+              <ul className={classes.itemsList}>
+                    {cart?.items?.map((item, index) => {
+                      if (typeof item.product === 'object') {
+                        const {
+                          quantity,
+                          product,
+                          product: { id, title, meta, stripeProductID },
+                        } = item
 
-                  const isLast = index === (cart?.items?.length || 0) - 1
+                        const isLast = index === (cart?.items?.length || 0) - 1
 
-                  const metaImage = meta?.image
+                        const metaImage = meta?.image
 
-                  return (
-                    <CartItem
-                        product={product}
-                        title={title}
-                        metaImage={metaImage}
-                        qty={quantity}
-                        addItemToCart={addItemToCart}
-                    />
-                  )
-                }
-                return null
-              })}
-              <HR />
-              <h5 className={classes.cartTotal}>{`Total: ${cartTotal.formatted}`}</h5>
-              <Button
-                className={classes.checkoutButton}
-                href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}
-                label={user ? 'Checkout' : 'Login to checkout'}
-                appearance="primary"
-              />
+                        return (
+                          <CartItem
+                            product={product}
+                            title={title}
+                            metaImage={metaImage}
+                            qty={quantity}
+                            addItemToCart={addItemToCart}
+                          />
+                        )
+                      }
+                      return null
+                    })}
+                  </ul>
+              <div className={classes.summary}>
+                <div className={classes.row}>
+                  <h6 className={classes.cartTotal}>
+                    Summury
+                  </h6>
+                </div>
+                <Button
+                  className={classes.checkoutButton}
+                  href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}
+                  label={user ? 'Checkout' : 'Login to checkout'}
+                  appearance="primary"
+                />
+              </div>
             </div>
           )}
         </Fragment>
