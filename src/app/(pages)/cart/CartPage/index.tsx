@@ -57,7 +57,15 @@ export const CartPage: React.FC<{
           ) : (
             <div className={classes.cartWrapper}>
               <div className={classes.header}>
-           
+                  <p>
+                    Products
+                  </p>
+                  <div className={classes.headerItemsDetails}>
+                    <p>Quantity</p>
+                  </div>
+                  <p className={classes.headersubtotal}>
+                      Subtotal
+                  </p>
               </div>
               <ul className={classes.itemsList}>
                     {cart?.items?.map((item, index) => {
