@@ -22,6 +22,7 @@ export const RemoveFromCartButton: React.FC<{
 
   return (
     <button
+      title='s'
       type="button"
       onClick={() => {
         deleteItemFromCart(product)

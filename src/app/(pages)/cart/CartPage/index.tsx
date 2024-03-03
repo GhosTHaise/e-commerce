@@ -57,7 +57,7 @@ export const CartPage: React.FC<{
                 <p>
                   Products
                 </p>
-                <div className={classes.headerItemsDetails}>
+                <div className={classes.headerItemDetails}>
                   <p></p>
                   <p></p>
                   <p>Quantity</p>
