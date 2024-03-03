@@ -17,8 +17,18 @@ const CartItem = ({
 
   const [quantity, setQuantity] = useState(qty)
 
-  const decrementQty = () => {}
-  const incrementQty = () => {}
+  const decrementQty = () => {
+    if(quantity > 1){
+      const updatedQty = quantity - 1;
+      setQuantity(updatedQty)
+      addItemToCart({product , quantity : Number(updatedQty)})
+    }
+  }
+  const incrementQty = () => {
+    const updatedQty = quantity + 1;
+    setQuantity(updatedQty)
+    addItemToCart({product , quantity : Number(updatedQty)})
+  }
   const enterQty = (e : React.ChangeEvent<HTMLInputElement>) => {}
 
   return (
@@ -61,11 +71,12 @@ const CartItem = ({
                   width={24} 
                   height={24} />
               </div>
-
               <input 
                 type='text' 
                 className={classes.quantityInput}
                 value={quantity}
+                placeholder=''
+                title='quantity'
                 onChange={(e) => enterQty(e)}
               />
 
