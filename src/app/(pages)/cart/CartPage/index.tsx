@@ -52,47 +52,49 @@ export const CartPage: React.FC<{
             </div>
           ) : (
             <div className={classes.cartWrapper}>
+              <div>
               <div className={classes.header}>
-                  <p>
-                    Products
-                  </p>
-                  <div className={classes.headerItemsDetails}>
-                    <p>Quantity</p>
-                  </div>
-                  <p className={classes.headersubtotal}>
-                      Subtotal
-                  </p>
+                <p>
+                  Products
+                </p>
+                <div className={classes.headerItemsDetails}>
+                  <p>Quantity</p>
+                </div>
+                <p className={classes.headersubtotal}>
+                  Subtotal
+                </p>
               </div>
               <ul className={classes.itemsList}>
-                    {cart?.items?.map((item, index) => {
-                      if (typeof item.product === 'object') {
-                        const {
-                          quantity,
-                          product,
-                          product: { id, title, meta, stripeProductID },
-                        } = item
+                {cart?.items?.map((item, index) => {
+                  if (typeof item.product === 'object') {
+                    const {
+                      quantity,
+                      product,
+                      product: { id, title, meta, stripeProductID },
+                    } = item
 
-                        const isLast = index === (cart?.items?.length || 0) - 1
+                    const isLast = index === (cart?.items?.length || 0) - 1
 
-                        const metaImage = meta?.image
+                    const metaImage = meta?.image
 
-                        return (
-                          <CartItem
-                            product={product}
-                            title={title}
-                            metaImage={metaImage}
-                            qty={quantity}
-                            addItemToCart={addItemToCart}
-                          />
-                        )
-                      }
-                      return null
-                    })}
-                  </ul>
+                    return (
+                      <CartItem
+                        product={product}
+                        title={title}
+                        metaImage={metaImage}
+                        qty={quantity}
+                        addItemToCart={addItemToCart}
+                      />
+                    )
+                  }
+                  return null
+                })}
+              </ul>
+              </div>
               <div className={classes.summary}>
                 <div className={classes.row}>
                   <h6 className={classes.cartTotal}>
-                    Summury
+                    Summary
                   </h6>
                 </div>
                 <div className={classes.row}>
@@ -103,7 +105,6 @@ export const CartPage: React.FC<{
                     $0
                   </p>
                 </div>
-
                 <div className={classes.row}>
                   <p className={classes.cartTotal}>
                     Grand Total
