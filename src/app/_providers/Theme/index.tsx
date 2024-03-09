@@ -27,7 +27,7 @@ export const ThemeProvider: React.FC<{ children?: React.ReactNode }> = ({ childr
     } else {
       setThemeState(themeToSet)
       window.localStorage.setItem(themeLocalStorageKey, themeToSet)
-      document.documentElement.setAttribute('data-theme', themeToSet)
+      document.documentElement.setAttribute('data-theme', defaultTheme)
     }
   }, [])
 
@@ -49,7 +49,7 @@ export const ThemeProvider: React.FC<{ children?: React.ReactNode }> = ({ childr
     setThemeState(themeToSet)
   }, [])
 
-  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+  return <ThemeContext.Provider value={{ theme : defaultTheme, setTheme }}>{children}</ThemeContext.Provider>
 }
 
 export const useTheme = (): ThemeContextType => useContext(ThemeContext)
